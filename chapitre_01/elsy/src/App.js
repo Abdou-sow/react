@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import Steps from './components/Steps.jsx';
+import Box from './components/Box.jsx';
 import './styles/global.css'
 var tempMin = -20
 var tempMax = 40
@@ -14,7 +14,19 @@ class App extends React.Component {
     return (
       <div className='container-fluid' >
         <div className='row' >
-          <Steps/>
+          {/* water */}
+          <Box
+          icon ="local_drink"
+          color ="#3A85FF"
+          value = {1.5}
+          unit ="L"
+          />
+          {/* steps */}
+          <Box/>
+          {/* heart */}
+          <Box/>
+          {/* Temperature */}
+          <Box/>
           <p>
             Heart : 80
             Temperature : -20
