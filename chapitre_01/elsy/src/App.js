@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import Steps from './components/Steps.jsx';
+import './styles/global.css'
 var tempMin = -20
 var tempMax = 40
 var heartMin = 80

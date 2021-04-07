@@ -1,0 +1,13 @@
+.box{
+    
+    height: 190px;
+    padding: 8px;
+    text-align: center;
+}
+
+.pairs{
+    background-color:#cccccc;
+}
+.impairs{
+    background-color:#aaaaaa ;
+}
