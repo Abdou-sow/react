@@ -10,23 +10,42 @@ var stepsMin = 0
 var stepsMax = 50000
 
 class App extends React.Component {
+  constructor() {
+    super(); 
+  }
   render() {
     return (
       <div className='container-fluid' >
         <div className='row' >
           {/* water */}
           <Box
-          icon ="local_drink"
+          icon = "local_drink"
           color ="#3A85FF"
           value = {1.5}
           unit ="L"
           />
+
           {/* steps */}
-          <Box/>
+          <Box
+          icon = "directions_walk"
+          color ="black"
+          value = {3000}
+          unit ="steps"
+          />
           {/* heart */}
-          <Box/>
+          <Box
+          icon = "favorite"
+          color ="red"
+          value = {120}
+          unit ="bpm"
+          />
           {/* Temperature */}
-          <Box/>
+          <Box
+          icon = "wb_sunny"
+          color ="yellow"
+          value = {-10}
+          unit ="°C"
+          />
           <p>
             Heart : 80
             Temperature : -20

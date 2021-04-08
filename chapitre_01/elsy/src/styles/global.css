@@ -1,13 +1,13 @@
 .box{
-    
+    background:#cccccc;
     height: 190px;
     padding: 8px;
     text-align: center;
 }
 
-.pairs{
-    background-color:#cccccc;
+.box:nth-child(odd) {
+    background:#aaaaaa;
 }
-.impairs{
-    background-color:#aaaaaa ;
+.box:nth-child(even) {
+    background:#cccccc;
 }
