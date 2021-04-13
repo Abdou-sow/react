@@ -2,10 +2,6 @@ import React from "react";
 import '../styles/global.css'
 
 class Box extends React.Component {
-    constructor() {
-        super();
-        this.state={min:0 ,max:100,onHeartChange:2} 
-    }
 
     render() {
         if (this.props.icon !== "local_drink") {
@@ -14,8 +10,8 @@ class Box extends React.Component {
                     <span class="material-icons" style={{ fontSize: 100, color: this.props.color }}>
                         {this.props.icon}
                     </span>
-                    <p>{this.props.value} ,{this.props.unit}</p>
-                    <input type="range" min={this.state.min} max={this.state.max} value="" onInput={this.state.onHeartChange} />
+                    <p>{this.props.value} {this.props.unit}</p>
+                    <input type="range" min={this.props.min} max={this.props.max} value={this.props.value} onInput={this.props.onchange} />
                 </div>
             )
         } else {
