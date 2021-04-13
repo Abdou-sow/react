@@ -11,15 +11,18 @@ var stepsMax = 50000
 
 class App extends React.Component {
   constructor() {
-    super(); 
-  
-  this.state={
-  water : 0,
-  heart : 120,
-  temperature : -10,
-  steps  : 3000
+    super();
 
-}
+    this.state = {
+      water: 0,
+      heart: 120,
+      temperature: -10,
+      steps: 3000
+
+    }
+  }
+  onHeartChange(e){
+    this.state.heart={heart : e.target.value}
   }
   render() {
     return (
@@ -27,32 +30,32 @@ class App extends React.Component {
         <div className='row' >
           {/* water */}
           <Box
-          icon = "local_drink"
-          color ="#3A85FF"
-          value = {1.5}
-          unit ="L"
+            icon="local_drink"
+            color="#3A85FF"
+            value={1.5}
+            unit="L"
           />
 
           {/* steps */}
           <Box
-          icon = "directions_walk"
-          color ="black"
-          value = {3000}
-          unit ="steps"
+            icon="directions_walk"
+            color="black"
+            value={3000}
+            unit="steps"
           />
           {/* heart */}
           <Box
-          icon = "favorite"
-          color ="red"
-          value = {120}
-          unit ="bpm"
+            icon="favorite"
+            color="red"
+            value={120}
+            unit="bpm"
           />
           {/* Temperature */}
           <Box
-          icon = "wb_sunny"
-          color ="yellow"
-          value = {-10}
-          unit ="°C"
+            icon="wb_sunny"
+            color="yellow"
+            value={-10}
+            unit="°C"
           />
           <p>
             Heart : 80
