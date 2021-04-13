@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import Box from './components/Box.jsx';
-import './styles/global.css'
+
 var tempMin = -20
 var tempMax = 40
 var heartMin = 80
@@ -12,6 +12,14 @@ var stepsMax = 50000
 class App extends React.Component {
   constructor() {
     super(); 
+  
+  this.state={
+  water : 0,
+  heart : 120,
+  temperature : -10,
+  steps  : 3000
+
+}
   }
   render() {
     return (
