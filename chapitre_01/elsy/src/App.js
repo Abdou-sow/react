@@ -14,19 +14,52 @@ class App extends React.Component {
     super();
 
     this.state = {
-      water: 0,
+      water: 1.5,
       heart: 120,
       temperature: -10,
       steps: 3000
 
     }
     this.onHeartChange = this.onHeartChange.bind(this)
+    this.onStepsChange = this.onStepsChange.bind(this)
+    this.onTemperatureChange = this.onTemperatureChange.bind(this)
+    this.calculateWater = this.calculateWater.bind(this)
+
   }
   onHeartChange(e) {
-    // this.state.heart={heart : e.target.value}
     this.setState({ heart: e.target.value })
+    this.calculateWater()
   }
+
+  onStepsChange(e) {
+    this.setState({ steps: e.target.value })
+    this.calculateWater()
+  }
+
+  onTemperatureChange(e) {
+    this.setState({ temperature: e.target.value })
+    this.calculateWater()
+  }
+
+  calculateWater() {
+    let result = 1.5
+    if (this.state.heart > 120) {
+      result += (0.0008 * (this.state.heart - 120))
+    }
+    if (this.state.steps > 10000) {
+      result += (0.00002 * (this.state.steps - 10000))
+    }
+    if (this.state.temperature > 20) {
+      result += (0.02 * (this.state.temperature - 20))
+    }
+    result = parseFloat(result.toFixed(2))
+    this.setState({ water: result })
+
+  }
+
+
   render() {
+
     return (
       <div className='container-fluid' >
         <div className='row' >
@@ -34,7 +67,7 @@ class App extends React.Component {
           <Box
             icon="local_drink"
             color="#3A85FF"
-            value={1.5}
+            value={this.state.water}
             unit="L"
           />
 
@@ -46,7 +79,7 @@ class App extends React.Component {
             unit="steps"
             min={stepsMin}
             max={stepsMax}
-            onchange={(e)=> this.onHeartChange(e)}
+            onchange={(e) => this.onStepsChange(e)}
 
           />
           {/* heart */}
@@ -57,7 +90,7 @@ class App extends React.Component {
             unit="bpm"
             min={heartMin}
             max={heartMax}
-            onchange={(e)=> this.onHeartChange(e)}
+            onchange={(e) => this.onHeartChange(e)}
           />
           {/* Temperature */}
           <Box
@@ -67,7 +100,7 @@ class App extends React.Component {
             unit="°C"
             min={tempMin}
             max={tempMax}
-            onchange={(e)=> this.onHeartChange(e)}
+            onchange={(e) => this.onTemperatureChange(e)}
 
           />
           <p>
