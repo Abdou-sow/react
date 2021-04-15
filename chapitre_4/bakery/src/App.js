@@ -19,14 +19,15 @@ class App extends Component {
     this.onClickFuction = this.onClickFuction.bind(this)
   }
 
+  elem = this.state.activeTab
 
-  onClickFuction() {
+  onClickFuction(elem) {
     console.log("on ma cliquer")
-    if (this.state.children === "List") {
-      this.setState({ activeTab: "List" })
-      console.log(this.state.activeTab);
-
-    }
+    console.log(elem);
+    // if (this.props.children === "List") {
+    //   this.setState({ activeTab: "List" })
+    //   // console.log(this.state.activeTab);
+    // }
   }
 
 
@@ -36,7 +37,7 @@ class App extends Component {
       <div className="App">
         {/*premier appelle */}
         <Button
-          onClickFuction={() => this.onClickFuction()}
+          onClickFuction={() => this.onClickFuction(elem)}
           isSelected={this.state.activeTab === "add" ? "btn btn-primary" : "btn btn-light"}
 
 
