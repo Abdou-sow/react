@@ -60,6 +60,10 @@ class App extends Component {
     }
 
   }
+  addItem = (name,price) =>{
+    this.setState({items: items.push[{name:this.state.productName ,price:this.state.price}]})
+    console.log(this.state.items)
+  }
 
 
   render() {

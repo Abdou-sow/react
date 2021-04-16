@@ -27,7 +27,7 @@ class Add extends Component {
             <div>
                 <div>
                     <input type="text" onChange={(e) => this.updateProductName(e)} />
-                    <button >Add</button>
+                    <button onClick={this.props.addItem()}>Add</button>
                 </div>
                 <div>
                 <div>
@@ -35,6 +35,7 @@ class Add extends Component {
                 </div>
                     <input type="range" min={this.state.min} max={this.state.max} onChange={(e) => this.updatePrice(e)} />
                 </div>
+
             </div>
 
         )
