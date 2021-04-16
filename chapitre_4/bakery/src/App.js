@@ -44,13 +44,13 @@ class App extends Component {
     if (this.state.activeTab === "Add") {
       return (
         <div>
-          <Add />
+          <Add addItem={this.addItem} />
         </div>
       )
     }
     if (this.state.activeTab === "List") {
       return (
-        <List />
+        <List myliste={this.state.items}/>
       )
     }
     if (this.state.activeTab === "Pay") {
@@ -60,13 +60,20 @@ class App extends Component {
     }
 
   }
-  addItem = (name,price) =>{
-    this.setState({items: items.push[{name:this.state.productName ,price:this.state.price}]})
-    console.log(this.state.items)
+  addItem = (name, price) => {
+    this.setState(
+      {
+        items: [
+          ...this.state.items,
+          { name: name, price: price }
+        ]
+      }
+    )
   }
 
 
   render() {
+    console.log("additem",this.state.items)
 
     return (
       <div className="App">

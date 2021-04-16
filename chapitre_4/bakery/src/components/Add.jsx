@@ -22,18 +22,23 @@ class Add extends Component {
     render() {
         console.log(this.state.productName);
         console.log(this.state.price);
+        const {
+            productName,
+            price
+
+        } = this.state
 
         return (
             <div>
                 <div>
-                    <input type="text" onChange={(e) => this.updateProductName(e)} />
-                    <button onClick={this.props.addItem()}>Add</button>
+                    <input type="text" onChange={this.updateProductName} />
+                    <button onClick={() => this.props.addItem(productName, price)}>Add</button>
                 </div>
                 <div>
-                <div>
-                    {this.state.price}€
+                    <div>
+                        {this.state.price}€
                 </div>
-                    <input type="range" min={this.state.min} max={this.state.max} onChange={(e) => this.updatePrice(e)} />
+                    <input type="range" min={this.state.min} max={this.state.max} onChange={this.updatePrice} />
                 </div>
 
             </div>
