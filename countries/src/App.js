@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './components/Button.jsx'
 import './App.css';
 
 class App extends React.Component {
@@ -14,7 +15,30 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/name/france")
+    // fetch("https://restcountries.eu/rest/v2/name/france")
+    //   .then(reponse => reponse.json())
+    //   .then(resul => {
+    //     const namect = resul[0].name
+    //     const populationct = resul[0].population
+    //     const capitalct = resul[0].capital
+    //     const flagct = resul[0].flag
+    //     const regionct = resul[0].region
+
+    //     this.setState({
+    //       name: namect,
+    //       population: populationct,
+    //       capital: capitalct,
+    //       flag: flagct,
+    //       region: regionct
+    //     })
+
+    //   })
+  }
+
+  getCountry=(country) => {
+    console.log("je suis dans getCountry ");
+    const url = "https://restcountries.eu/rest/v2/name/" + country
+    fetch(url)
       .then(reponse => reponse.json())
       .then(resul => {
         const namect = resul[0].name
@@ -30,12 +54,26 @@ class App extends React.Component {
           flag: flagct,
           region: regionct
         })
-
-      })
+      }
+      )
   }
+
   render() {
+
+    // <Button
+    // children="france"
+    // />
+    // <Button
+    // children="france"
+    // />
     return (
       <div>
+        <Button
+          children="france" />
+        <Button
+          children="Brazil" />
+        <Button
+          children="Croatia" />
         <div>
           name = {this.state.name}
         </div>
