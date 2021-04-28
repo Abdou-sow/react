@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 
+
 class List extends Component {
 
     render(props) {
         return (
-            <ul>
-                {this.props.myliste.map((x) =><li>{(x.name)}</li> )}
-            </ul>
+            <div>
+                <ul style={{ listStyle: 'none' }}>
+                    {this.props.myliste.map((x) => <li><div className="box col-4" style={{ border: 'solid' }} >{(x.name)}<span style={{ float: 'right', backgrounColor: 'red' }}>{(x.price)}</span></div></li>)}
+                </ul>
+                <button>sup</button>
+            </div>
         )
     }
 }

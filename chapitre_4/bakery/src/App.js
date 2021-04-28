@@ -79,6 +79,7 @@ class App extends Component {
       <div className="App">
         {/*premier appelle */}
         <Button
+          className="btn btn-outline-success"
           onClickFuction={() => this.onClickAdd()}
           isSelected={this.state.activeTab === "Add" ? "btn btn-primary" : "btn btn-light"}
         >Add</Button>
