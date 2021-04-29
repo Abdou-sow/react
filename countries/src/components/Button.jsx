@@ -3,7 +3,7 @@ import React from 'react'
 class Button extends React.Component {
     render() {
         return (
-            <button onClick={this.props.getCountry} >{this.props.children}</button>
+            <button style={{margin:10}} className="btn btn-primary" onClick={this.props.onClick} >{this.props.children}</button>
         )
     }
 }
