@@ -37,6 +37,29 @@ class App extends React.Component {
       })
   }
 
+  getCountry1 = (contry) => {
+    fetch("http://localhost:8000/countries")
+      .then(reponse => reponse.json())
+      .then(resul => {
+        const namect = resul[0].contry.name
+        const populationct = resul[0].contry.population
+        const capitalct = resul[0].contry.capital
+        const flagct = resul[0].contry.flag
+        const regionct = resul[0].contry.region
+
+        console.log("namect",namect);
+
+        // this.setState({
+        //   name: namect,
+        //   population: populationct,
+        //   capital: capitalct,
+        //   flag: flagct,
+        //   region: regionct
+        // })
+      }
+      )
+  }
+
   getCountry = (country) => {
     // console.log("je suis dans getCountry ");
     const url = "https://restcountries.eu/rest/v2/name/" + country
@@ -62,16 +85,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div style={{ textAlign: "center", border: 'solid',borderColor:'#efebeb', width: "max-content", marginLeft: '42%',height: 325 }}>
+      <div style={{ textAlign: "center", border: 'solid', borderColor: '#efebeb', width: "max-content", marginLeft: '42%', height: 325 }}>
         <h1>Country selector</h1>
         <Button
-          onClick={() => this.getCountry("france")}
+          onClick={() => this.getCountry1("france")}
           children="france" />
         <Button
-          onClick={() => this.getCountry("Brazil")}
+          onClick={() => this.getCountry1("Brazil")}
           children="Brazil" />
         <Button
-          onClick={() => this.getCountry("Croatia")}
+          onClick={() => this.getCountry1("Croatia")}
           children="Croatia" />
         <Card
           name={this.state.name}
