@@ -5,8 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends React.Component {
+  
   constructor() {
     super()
+
     this.state = {
       name: "",
       capital: "",
@@ -37,31 +39,44 @@ class App extends React.Component {
       })
   }
 
-  getCountry1 = (contry) => {
-    fetch("http://localhost:8000/countries")
+  // methode avec backend
+  getCountry1 = (country) => {
+
+    // console.log("je suis dans getCountry ");
+
+    const url1 = "http://localhost:8000/countries/" + country
+    fetch(url1)
       .then(reponse => reponse.json())
       .then(resul => {
-        const namect = resul[0].contry.name
-        const populationct = resul[0].contry.population
-        const capitalct = resul[0].contry.capital
-        const flagct = resul[0].contry.flag
-        const regionct = resul[0].contry.region
 
-        console.log("namect",namect);
+        // console.log(resul);
 
-        // this.setState({
-        //   name: namect,
-        //   population: populationct,
-        //   capital: capitalct,
-        //   flag: flagct,
-        //   region: regionct
-        // })
+        const namect = resul[0].name
+        const populationct = resul[0].population
+        const capitalct = resul[0].capital
+        const flagct = resul[0].flag
+        const regionct = resul[0].region
+
+
+        this.setState(
+          {
+            name: namect,
+            population: populationct,
+            capital: capitalct,
+            flag: flagct,
+            region: regionct
+          }
+        )
       }
       )
   }
 
+
+  // methode sans backend
   getCountry = (country) => {
+
     // console.log("je suis dans getCountry ");
+
     const url = "https://restcountries.eu/rest/v2/name/" + country
     fetch(url)
       .then(reponse => reponse.json())
@@ -72,13 +87,15 @@ class App extends React.Component {
         const flagct = resul[0].flag
         const regionct = resul[0].region
 
-        this.setState({
-          name: namect,
-          population: populationct,
-          capital: capitalct,
-          flag: flagct,
-          region: regionct
-        })
+        this.setState(
+          {
+            name: namect,
+            population: populationct,
+            capital: capitalct,
+            flag: flagct,
+            region: regionct
+          }
+        )
       }
       )
   }
