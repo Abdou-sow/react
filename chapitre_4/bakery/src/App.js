@@ -6,7 +6,7 @@ import './components/Button.jsx'
 import Button from './components/Button.jsx';
 import List from './components/List.jsx'
 import Pay from './components/Pay.jsx'
-import Card from './components/card.jsx'
+import Card from './components/Card.jsx'
 
 
 
@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       activeTab: "add",
       items: [],
-      Image:"../public/images/item.png"
+      
     }
   }
   
@@ -100,11 +100,6 @@ class App extends Component {
           onClickFuction={() => this.onClickPay()}
           isSelected={this.state.activeTab === "Pay" ? "btn btn-primary" : "btn btn-light"}
         >Pay</Button>
-
-        <Button>
-          <img src={this.state.Image}/>
-        </Button>
-
         {this.renderONglet()}
 
       </div>
