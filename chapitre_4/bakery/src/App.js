@@ -6,7 +6,6 @@ import './components/Button.jsx'
 import Button from './components/Button.jsx';
 import List from './components/List.jsx'
 import Pay from './components/Pay.jsx'
-import Card from './components/Card.jsx'
 
 
 
